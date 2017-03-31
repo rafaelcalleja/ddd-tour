@@ -1,0 +1,7 @@
+tour_1:
+  location: Madrid
+  guides: guide_1
+  access_rule:
+    - access_rule.legal_age
+    - access_rule.collegue_student
+    - access_rule.fellowship
