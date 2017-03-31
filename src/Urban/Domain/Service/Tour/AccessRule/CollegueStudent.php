@@ -8,7 +8,7 @@ class CollegueStudent implements AccessRuleConstraintInterface
     {
     }
 
-    public function __invoke()
+    public function __invoke(): bool
     {
     }
 }
