@@ -26,24 +26,15 @@ class InMemoryTourRepository implements TourRepositoryInterface
     private $customerRepository;
 
     /**
-     * @var AccessRuleLocatorInterface
-     */
-    private $locator;
-
-
-    /**
-     * @param AccessRuleLocatorInterface $locator
      * @param CustomerRepositoryInterface $customerRepository
      * @param TourConstraintInterface $tourConstraint
      * @param \Urban\Domain\Model\Tour\Tour[] ...$tours
      */
     public function __construct(
-        AccessRuleLocatorInterface $locator,
         CustomerRepositoryInterface $customerRepository,
         TourConstraintInterface $tourConstraint,
-        Tour...$tours
+        Tour ...$tours
     ) {
-        $this->locator = $locator;
         $this->customerRepository = $customerRepository;
         $this->tourConstraint = $tourConstraint;
         $this->tours = $tours;
@@ -59,7 +50,6 @@ class InMemoryTourRepository implements TourRepositoryInterface
                     $this->tours,
                     function (Tour $tour) use ($user) {
                         foreach ($tour->accessRules() as $accessRule) {
-
                             if (false === $this->tourConstraint->allowedFor($user, $accessRule)) {
                                 return null;
                             }
