@@ -5,7 +5,6 @@ namespace Urban\Infrastructure\Persistence\InMemory\Tour;
 use Urban\Domain\Model\Customer\CustomerRepositoryInterface;
 use Urban\Domain\Model\Tour\Tour;
 use Urban\Domain\Model\Tour\TourRepositoryInterface;
-use Urban\Domain\Servie\Tour\AccessRuleLocatorInterface;
 use Urban\Domain\Servie\Tour\TourConstraintInterface;
 
 class InMemoryTourRepository implements TourRepositoryInterface
